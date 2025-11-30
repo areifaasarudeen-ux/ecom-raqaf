@@ -34,6 +34,8 @@ RUN gradle build -x test
 FROM eclipse-temurin:21-jdk-alpine
 WORKDIR /app
 COPY --from=build /app/build/libs/*.jar app.jar
-
+ENV SPRING_DATASOURCE_URL=jdbc:postgresql://ep-dark-heart-adzouazi-pooler.c-2.us-east-1.aws.neon.tech:5432/raqaf-kwt
+ENV SPRING_DATASOURCE_USERNAME=neondb_owner
+ENV SPRING_DATASOURCE_PASSWORD=npg_3hGXeN1LFtPK
 EXPOSE 8080
 ENTRYPOINT ["java","-jar","app.jar"]
